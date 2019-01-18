@@ -362,6 +362,7 @@ const render = function (id, txt, cb, container) {
 
   const element = d3.select('#d' + id).node()
   const graphType = utils.detectType(txt)
+  logger.debug(graphType)
 
   // insert inline style into svg
   const svg = element.firstChild
@@ -381,6 +382,7 @@ const render = function (id, txt, cb, container) {
   // classDef
   if (graphType === 'flowchart') {
     const classes = flowRenderer.getClasses(txt)
+    logger.debug(classes)
     for (const className in classes) {
       style += `\n.${className} > * { ${classes[className].styles.join(' !important; ')} !important; }`
     }

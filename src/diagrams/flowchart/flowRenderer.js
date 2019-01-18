@@ -35,6 +35,8 @@ export const addVertices = function (vert, g) {
     return styleStr
   }
 
+  logger.error(keys)
+
   // Iterate through each item in the vertice object (containing all the vertices found) in the graph definition
   keys.forEach(function (id) {
     const vertice = vert[id]
@@ -109,6 +111,9 @@ export const addVertices = function (vert, g) {
         break
       case 'diamond':
         _shape = 'question'
+        break
+      case 'image':
+        _shape = 'image'
         break
       case 'odd':
         _shape = 'rect_left_inv_arrow'
@@ -235,6 +240,7 @@ export const getClasses = function (text) {
  * @param id
  */
 export const draw = function (text, id) {
+  logger.warn(txt)
   logger.debug('Drawing flowchart')
   flowDb.clear()
   const parser = flow.parser
@@ -277,6 +283,7 @@ export const draw = function (text, id) {
 
   // Fetch the verices/nodes and edges/links from the parsed graph definition
   const vert = flowDb.getVertices()
+  logger.error(vert)
 
   const edges = flowDb.getEdges()
 

@@ -260,6 +260,8 @@ vertex:  alphaNum SQS text SQE
         {$$ = $1;yy.addVertex($1,$3,'diamond');}
     | alphaNum DIAMOND_START text DIAMOND_STOP spaceList
         {$$ = $1;yy.addVertex($1,$3,'diamond');}
+    | alphaNum PS SQS text SQE PE spaceList
+        {$$ = $1;yy.addVertex($1,$3,'image');}
     | alphaNum TAGEND text SQE
         {$$ = $1;yy.addVertex($1,$3,'odd');}
     | alphaNum TAGEND text SQE spaceList
